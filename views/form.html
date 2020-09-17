@@ -4,12 +4,6 @@
 		<input type="date" id="date" name="earth_date" value="{{.Date}}">
 		Camera:
 		<select name="camera" id="camera">
-			{{if eq .Camera "all"}}
-				<option value="all" selected>All</option>
-			{{else}}
-				<option value="all">All</option>
-			{{end}}
-
 			{{range .Cameras}}
 				{{if eq $.Camera .Name}}
 					<option value="{{.Name}}" selected>{{.FullName}}</option>

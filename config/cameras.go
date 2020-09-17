@@ -1,4 +1,4 @@
-package common
+package config
 
 import (
 	"mars-rover-photos/models"
@@ -6,6 +6,10 @@ import (
 
 var (
 	RoverCameras = []models.Camera{
+		models.Camera{
+			Name:     "all",
+			FullName: "All",
+		},
 		models.Camera{
 			Name:     "FHAZ",
 			FullName: "Front Hazard Avoidance Camera",

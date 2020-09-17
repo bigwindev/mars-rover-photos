@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"mars-rover-photos/common"
+	"mars-rover-photos/config"
 	"mars-rover-photos/models"
 	"mars-rover-photos/utils/cache"
 	"mars-rover-photos/utils/nasa"
@@ -65,7 +65,7 @@ func GetPhotos(ctx iris.Context) {
 	}
 
 	ctx.ViewData("Date", dateStr)
-	ctx.ViewData("Cameras", common.RoverCameras)
+	ctx.ViewData("Cameras", config.RoverCameras)
 	ctx.ViewData("Camera", camera)
 	ctx.View("form.html")
 
