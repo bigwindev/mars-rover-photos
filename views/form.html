@@ -1,6 +1,7 @@
 <form id="myform" action="http://127.0.0.1:8080/api/v1/mars-rover-photos" method="get">
 	<div>
-		Earth Date: <input type="date" id="date" name="earth_date" value="{{.Date}}">
+		Earth Date:
+		<input type="date" id="date" name="earth_date" value="{{.Date}}">
 		Camera:
 		<select name="camera" id="camera">
 			{{if eq .Camera "all"}}
@@ -15,10 +16,10 @@
 				{{else}}
 					<option value="{{.Name}}">{{.FullName}}</option>
 				{{end}}
-		  {{end}}
+			{{end}}
 		</select>
 	</div>
 	<div>
-    	<input type="submit" value="Get Photos" />
+		<input type="submit" value="Get Photos"/>
 	</div>
 </form>

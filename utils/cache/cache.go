@@ -3,20 +3,20 @@ package cache
 import (
 	"encoding/json"
 
-  "mars-rover-photos/models"
+	"mars-rover-photos/models"
 )
 
-func SetMarsPhotos(date string, camera string, photos string) (error) {
-  // Get cache connection from pool
+func SetMarsPhotos(date string, camera string, photos string) error {
+	// Get cache connection from pool
 	conn, err := GetConn()
 	if err != nil {
 		return err
 	}
 
 	// Store in cache
-  err = Set(conn, date + ":" + camera, photos)
+	err = Set(conn, date+":"+camera, photos)
 
-  // Close redis connection
+	// Close redis connection
 	conn.Close()
 
 	if err != nil {
@@ -27,16 +27,16 @@ func SetMarsPhotos(date string, camera string, photos string) (error) {
 }
 
 func GetMarsPhotos(date string, camera string) (*models.Photos, error) {
-  // Get cache connection from pool
+	// Get cache connection from pool
 	conn, err := GetConn()
 	if err != nil {
 		return nil, err
 	}
 
 	// Get from cache
-	s, err := Get(conn, date + ":" + camera)
+	s, err := Get(conn, date+":"+camera)
 
-  // Close redis connection
+	// Close redis connection
 	conn.Close()
 
 	if err != nil {
@@ -44,7 +44,7 @@ func GetMarsPhotos(date string, camera string) (*models.Photos, error) {
 	}
 
 	// Unmarshal response from cache
-  photos := &models.Photos{}
+	photos := &models.Photos{}
 	err = json.Unmarshal([]byte(s), photos)
 	if err != nil {
 		return nil, err

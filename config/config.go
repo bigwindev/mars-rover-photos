@@ -10,20 +10,20 @@ import (
 var (
 	configFile = "config.yaml"
 
-	All AllConfig
-	Nasa NASAConfig
+	All    AllConfig
+	Nasa   NASAConfig
 	Server ServerConfig
 )
 
 type AllConfig struct {
-	Nasa NASAConfig `yaml:"nasa"`
+	Nasa   NASAConfig   `yaml:"nasa"`
 	Server ServerConfig `yaml:"server"`
 }
 
 type NASAConfig struct {
-	APIURL string `yaml:"api_url"`
-	APIKey string `yaml:"api_key"`
-  MRPPath string `yaml:"mrp_path"`
+	APIURL  string `yaml:"api_url"`
+	APIKey  string `yaml:"api_key"`
+	MRPPath string `yaml:"mrp_path"`
 }
 
 type ServerConfig struct {

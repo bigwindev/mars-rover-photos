@@ -1,10 +1,10 @@
 package nasa
 
 import (
-	"log"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
 	"strconv"

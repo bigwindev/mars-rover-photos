@@ -1,14 +1,14 @@
 package controllers
 
 import (
+	"fmt"
 	"log"
-  "fmt"
 	"time"
 
-	"mars-rover-photos/utils/nasa"
-	"mars-rover-photos/utils/cache"
 	"mars-rover-photos/common"
 	"mars-rover-photos/models"
+	"mars-rover-photos/utils/cache"
+	"mars-rover-photos/utils/nasa"
 
 	"github.com/kataras/iris/v12"
 )
@@ -60,21 +60,21 @@ func GetPhotos(ctx iris.Context) {
 	if err != nil {
 		log.Printf("mars-rover-photos: failed to get nasa API response with error: %v\n", err)
 		ctx.ViewData("Message", fmt.Sprintf("%v", err))
-    ctx.View("error.html")
-    return
+		ctx.View("error.html")
+		return
 	}
 
 	ctx.ViewData("Date", dateStr)
 	ctx.ViewData("Cameras", common.RoverCameras)
 	ctx.ViewData("Camera", camera)
-  ctx.View("form.html")
+	ctx.View("form.html")
 
 	// If no photos, then show empty message
 	if len(res.Photos) == 0 {
-    ctx.View("empty.html")
-    return
+		ctx.View("empty.html")
+		return
 	}
 
-  ctx.ViewData("Photos", res.Photos)
-  ctx.View("index.html")
+	ctx.ViewData("Photos", res.Photos)
+	ctx.View("index.html")
 }
