@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mars-rover-photos:
+    image: golang:latest
+    volumes:
+      - ./:/usr/src/mars-rover-photos
+    working_dir: /usr/src/mars-rover-photos
+    ports:
+      - 8080:8080
+    command: bash -c "cd /usr/src/mars-rover-photos/ && go build && ./mars-rover-photos"
+  redis:
+    image: redis:alpine

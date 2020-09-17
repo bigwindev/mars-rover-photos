@@ -1,0 +1,7 @@
+nasa:
+  api_url: "https://api.nasa.gov"
+  api_key: "NYhaMukoAhrPycNhNjhl7RhRFN7mGhRqoGAOtVoW"
+  mrp_path: "/mars-photos/api/v1/rovers/curiosity/photos"
+
+server:
+  port: ":8080"
