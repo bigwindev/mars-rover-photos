@@ -3,6 +3,8 @@ version: '3'
 services:
   mars-rover-photos:
     image: golang:latest
+    environment:
+      - REDIS_SERVER=redis:6379
     volumes:
       - ./:/usr/src/mars-rover-photos
     working_dir: /usr/src/mars-rover-photos

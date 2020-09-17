@@ -2,6 +2,7 @@ package cache
 
 import (
 	"log"
+	"os"
 
 	"github.com/gomodule/redigo/redis"
 )
@@ -19,7 +20,11 @@ func newPool() *redis.Pool {
 		MaxIdle:   80,
 		MaxActive: 12000,
 		Dial: func() (redis.Conn, error) {
-			c, err := redis.Dial("tcp", "redis:6379")
+			redisServer := os.Getenv("REDIS_SERVER")
+			if redisServer == "" {
+				redisServer = "localhost:6379"
+			}
+			c, err := redis.Dial("tcp", redisServer)
 			if err != nil {
 				log.Printf("mars-rover-photos: failed to dial redis: %v\n", err)
 			}
