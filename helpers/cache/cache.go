@@ -14,7 +14,11 @@ func SetMarsPhotos(date string, camera string, photos string) error {
 	}
 
 	// Store in cache
-	err = Set(conn, date+":"+camera, photos)
+	if camera == "" {
+		err = Set(conn, date+":all", photos)
+	} else {
+		err = Set(conn, date+":"+camera, photos)
+	}
 
 	// Close redis connection
 	conn.Close()
@@ -34,6 +38,9 @@ func GetMarsPhotos(date string, camera string) (*models.Photos, error) {
 	}
 
 	// Get from cache
+	if camera == "" {
+		camera = "all"
+	}
 	s, err := Get(conn, date+":"+camera)
 
 	// Close redis connection
