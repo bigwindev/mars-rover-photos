@@ -10,8 +10,8 @@ import (
 	"strconv"
 
 	"mars-rover-photos/config"
+	"mars-rover-photos/helpers/cache"
 	"mars-rover-photos/models"
-	"mars-rover-photos/utils/cache"
 )
 
 // GetMarsPhotos parses the response from NASA Mars Rover Phtos API

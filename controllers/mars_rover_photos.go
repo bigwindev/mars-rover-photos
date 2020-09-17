@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"mars-rover-photos/config"
+	"mars-rover-photos/helpers/cache"
+	"mars-rover-photos/helpers/nasa"
 	"mars-rover-photos/models"
-	"mars-rover-photos/utils/cache"
-	"mars-rover-photos/utils/nasa"
 
 	"github.com/kataras/iris/v12"
 )
