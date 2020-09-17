@@ -36,20 +36,24 @@ Each camera has a unique function and perspective, and they are named as follows
 #### Example query
 https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY
 
-# How to use
+# How to test
 
-## Prerequisites
-
-### Golang, Docker, Docker-compose
-https://golang.org/doc/install  
-https://docs.docker.com/install  
-https://docs.docker.com/compose/install
-
-## How to run
+## Run with Docker
 ```sh
 git clone https://github.com/bigwindev/mars-rover-photos.git
 cd mars-rover-photos
 docker-compose up --remove-orphans
 ```
 
-mars-rover-photos listens on `localhost:8080`
+## Run without Docker
+```sh
+git clone https://github.com/bigwindev/mars-rover-photos.git
+cd mars-rover-photos
+go build
+./mars-rover-photos
+```
+
+## Request on Web browser
+```
+http://localhost:8080
+```
