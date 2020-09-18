@@ -44,7 +44,7 @@ https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-
 ## How to test
 
 ### Run with Docker
-**Preinstall:** Git, Docker
+**Preinstall:** Git, Docker, Docker Compose
 
 ```sh
 git clone https://github.com/bigwindev/mars-rover-photos.git
